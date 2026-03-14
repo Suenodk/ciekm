@@ -1,0 +1,4 @@
+name: localhost
+variables:
+  - name: url
+    value: http://localhost:3000
