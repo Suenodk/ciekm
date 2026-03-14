@@ -27,16 +27,19 @@ export type AggregateGebruiker = {
 export type GebruikerMinAggregateOutputType = {
   id: string | null
   name: string | null
+  password: string | null
 }
 
 export type GebruikerMaxAggregateOutputType = {
   id: string | null
   name: string | null
+  password: string | null
 }
 
 export type GebruikerCountAggregateOutputType = {
   id: number
   name: number
+  password: number
   _all: number
 }
 
@@ -44,16 +47,19 @@ export type GebruikerCountAggregateOutputType = {
 export type GebruikerMinAggregateInputType = {
   id?: true
   name?: true
+  password?: true
 }
 
 export type GebruikerMaxAggregateInputType = {
   id?: true
   name?: true
+  password?: true
 }
 
 export type GebruikerCountAggregateInputType = {
   id?: true
   name?: true
+  password?: true
   _all?: true
 }
 
@@ -132,6 +138,7 @@ export type GebruikerGroupByArgs<ExtArgs extends runtime.Types.Extensions.Intern
 export type GebruikerGroupByOutputType = {
   id: string
   name: string
+  password: string
   _count: GebruikerCountAggregateOutputType | null
   _min: GebruikerMinAggregateOutputType | null
   _max: GebruikerMaxAggregateOutputType | null
@@ -158,11 +165,13 @@ export type GebruikerWhereInput = {
   NOT?: Prisma.GebruikerWhereInput | Prisma.GebruikerWhereInput[]
   id?: Prisma.StringFilter<"Gebruiker"> | string
   name?: Prisma.StringFilter<"Gebruiker"> | string
+  password?: Prisma.StringFilter<"Gebruiker"> | string
 }
 
 export type GebruikerOrderByWithRelationInput = {
   id?: Prisma.SortOrder
   name?: Prisma.SortOrder
+  password?: Prisma.SortOrder
 }
 
 export type GebruikerWhereUniqueInput = Prisma.AtLeast<{
@@ -171,11 +180,13 @@ export type GebruikerWhereUniqueInput = Prisma.AtLeast<{
   AND?: Prisma.GebruikerWhereInput | Prisma.GebruikerWhereInput[]
   OR?: Prisma.GebruikerWhereInput[]
   NOT?: Prisma.GebruikerWhereInput | Prisma.GebruikerWhereInput[]
+  password?: Prisma.StringFilter<"Gebruiker"> | string
 }, "id" | "name">
 
 export type GebruikerOrderByWithAggregationInput = {
   id?: Prisma.SortOrder
   name?: Prisma.SortOrder
+  password?: Prisma.SortOrder
   _count?: Prisma.GebruikerCountOrderByAggregateInput
   _max?: Prisma.GebruikerMaxOrderByAggregateInput
   _min?: Prisma.GebruikerMinOrderByAggregateInput
@@ -187,56 +198,67 @@ export type GebruikerScalarWhereWithAggregatesInput = {
   NOT?: Prisma.GebruikerScalarWhereWithAggregatesInput | Prisma.GebruikerScalarWhereWithAggregatesInput[]
   id?: Prisma.StringWithAggregatesFilter<"Gebruiker"> | string
   name?: Prisma.StringWithAggregatesFilter<"Gebruiker"> | string
+  password?: Prisma.StringWithAggregatesFilter<"Gebruiker"> | string
 }
 
 export type GebruikerCreateInput = {
   id?: string
   name: string
+  password: string
 }
 
 export type GebruikerUncheckedCreateInput = {
   id?: string
   name: string
+  password: string
 }
 
 export type GebruikerUpdateInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   name?: Prisma.StringFieldUpdateOperationsInput | string
+  password?: Prisma.StringFieldUpdateOperationsInput | string
 }
 
 export type GebruikerUncheckedUpdateInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   name?: Prisma.StringFieldUpdateOperationsInput | string
+  password?: Prisma.StringFieldUpdateOperationsInput | string
 }
 
 export type GebruikerCreateManyInput = {
   id?: string
   name: string
+  password: string
 }
 
 export type GebruikerUpdateManyMutationInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   name?: Prisma.StringFieldUpdateOperationsInput | string
+  password?: Prisma.StringFieldUpdateOperationsInput | string
 }
 
 export type GebruikerUncheckedUpdateManyInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   name?: Prisma.StringFieldUpdateOperationsInput | string
+  password?: Prisma.StringFieldUpdateOperationsInput | string
 }
 
 export type GebruikerCountOrderByAggregateInput = {
   id?: Prisma.SortOrder
   name?: Prisma.SortOrder
+  password?: Prisma.SortOrder
 }
 
 export type GebruikerMaxOrderByAggregateInput = {
   id?: Prisma.SortOrder
   name?: Prisma.SortOrder
+  password?: Prisma.SortOrder
 }
 
 export type GebruikerMinOrderByAggregateInput = {
   id?: Prisma.SortOrder
   name?: Prisma.SortOrder
+  password?: Prisma.SortOrder
 }
 
 export type StringFieldUpdateOperationsInput = {
@@ -248,24 +270,28 @@ export type StringFieldUpdateOperationsInput = {
 export type GebruikerSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
   id?: boolean
   name?: boolean
+  password?: boolean
 }, ExtArgs["result"]["gebruiker"]>
 
 export type GebruikerSelectCreateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
   id?: boolean
   name?: boolean
+  password?: boolean
 }, ExtArgs["result"]["gebruiker"]>
 
 export type GebruikerSelectUpdateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
   id?: boolean
   name?: boolean
+  password?: boolean
 }, ExtArgs["result"]["gebruiker"]>
 
 export type GebruikerSelectScalar = {
   id?: boolean
   name?: boolean
+  password?: boolean
 }
 
-export type GebruikerOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "name", ExtArgs["result"]["gebruiker"]>
+export type GebruikerOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "name" | "password", ExtArgs["result"]["gebruiker"]>
 
 export type $GebruikerPayload<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   name: "Gebruiker"
@@ -273,6 +299,7 @@ export type $GebruikerPayload<ExtArgs extends runtime.Types.Extensions.InternalA
   scalars: runtime.Types.Extensions.GetPayloadResult<{
     id: string
     name: string
+    password: string
   }, ExtArgs["result"]["gebruiker"]>
   composites: {}
 }
@@ -698,6 +725,7 @@ export interface Prisma__GebruikerClient<T, Null = never, ExtArgs extends runtim
 export interface GebruikerFieldRefs {
   readonly id: Prisma.FieldRef<"Gebruiker", 'String'>
   readonly name: Prisma.FieldRef<"Gebruiker", 'String'>
+  readonly password: Prisma.FieldRef<"Gebruiker", 'String'>
 }
     
 

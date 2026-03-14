@@ -1,16 +1,17 @@
 info:
-  name: create-gebruiker
+  name: login
   type: http
   seq: 1
 
 http:
   method: POST
-  url: "{{url}}/gebruiker"
+  url: "{{url}}/identity/login"
   body:
     type: json
     data: |-
       {
-        "naam": "el tigre"
+        "naam": "el tigre",
+        "password": "admin"
       }
   auth: inherit
 
