@@ -1,6 +1,6 @@
 import { Module } from '@nestjs/common';
-import { LootjeController } from './lootje.controller.js';
-import { LootjeService } from './lootje.service.js';
+import { LootjeController } from './lootje.controller';
+import { LootjeService } from './lootje.service';
 
 @Module({
   controllers: [LootjeController],
