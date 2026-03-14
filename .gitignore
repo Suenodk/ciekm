@@ -53,6 +53,9 @@ build/config\.gypi
 .npmrc
 pnpm-lock.yaml
 /.history
+/generated/prisma
+
+.env.local
 
 ciekm-backend/dist
 ciekm-frontend/.angular/cache
