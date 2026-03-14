@@ -1,0 +1,35 @@
+# Stage 1: Build
+FROM node:20-alpine AS build
+
+# Set working directory
+WORKDIR /app
+
+# Copy package files
+COPY package*.json ./
+
+# Install dependencies
+RUN npm install
+
+# Copy the rest of the source code
+COPY . .
+
+# Build the project (NestJS compiles TS -> JS)
+RUN npm run build
+
+# Stage 2: Run
+FROM node:20-alpine
+
+WORKDIR /app
+
+# Copy only the compiled files and package.json
+COPY package*.json ./
+COPY --from=build /app/dist ./dist
+
+# Install only production dependencies
+RUN npm install --omit=dev
+
+# Expose port (default 3000)
+EXPOSE 3000
+
+# Command to run the app
+CMD ["node", "dist/main.js"]
