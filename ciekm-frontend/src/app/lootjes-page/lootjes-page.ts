@@ -15,7 +15,9 @@ export class LootjesPage {
   readonly #http = inject(HttpClient);
 
   lootjeTrekken(): void {
-    this.#http.get("http://localhost:3000", { responseType: 'text' })
+    this.#http.post("http://localhost:3000/lootje", 
+      { deelnemers: this.deelnemers() },
+      { responseType: 'text' })
       .subscribe((x) => this.getrokkenLootje.set(x));
   }
 
