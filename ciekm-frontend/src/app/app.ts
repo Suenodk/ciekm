@@ -10,7 +10,4 @@ import { RouterOutlet, RouterLinkWithHref, RouterModule } from '@angular/router'
 export class App {
   protected readonly title = signal('ciekm-frontend');
 
-  gaNaarLogin() : void{
-
-  }
 }
