@@ -1,20 +1,4 @@
 services:
-  db:
-    image: postgres:18
-    healthcheck:
-      test: ["CMD-SHELL", "pg_isready -U Jarod -d database"]
-      interval: 5s
-      retries: 10
-    container_name: ciekm-database
-    environment:
-      POSTGRES_USER: Jarod
-      POSTGRES_PASSWORD: Konijnenberg
-      POSTGRES_DB: database
-    volumes:
-      - pgdata_ciekm:/var/lib/postgresql
-    ports:
-      - "5432:5432"
-
   app:
     build: .
     container_name: ciekm-backend
@@ -25,9 +9,6 @@ services:
       - "3000:3000"
     networks:
       - app_default
-
-volumes:
-   pgdata_ciekm:
 
 networks:
   app_default:
