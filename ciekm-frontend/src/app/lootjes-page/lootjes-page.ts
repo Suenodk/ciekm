@@ -17,7 +17,7 @@ export class LootjesPage {
   readonly getrokkenLootje = signal('');
 
   lootjeTrekken(): void {
-    this.#http.post("/lootje",
+    this.#http.post("/api/lootje",
       { deelnemers: this.deelnemers() },
       { responseType: 'text' })
       .subscribe((x) => this.getrokkenLootje.set(x));
