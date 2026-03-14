@@ -2,7 +2,21 @@
   background-color: #222;
   color: white;
   text-align: left;
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
   padding: 15px 0;
   font-size: 1.5rem;
   flex-shrink: 0; /* banner does not shrink */
+  margin-bottom: 20px; 
+}
+
+.banner h1 {
+  margin-left: 10%;
+}
+
+#inlogButton {
+  margin-right: 5%;
+  width:200px;
+  height: 80px;
 }
