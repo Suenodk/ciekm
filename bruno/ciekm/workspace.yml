@@ -1,0 +1,12 @@
+opencollection: 1.0.0
+info:
+  name: "ciekm"
+  type: workspace
+
+collections:
+  - name: "gebruikers"
+    path: "collections/gebruikers"
+
+specs:
+
+docs: ''
