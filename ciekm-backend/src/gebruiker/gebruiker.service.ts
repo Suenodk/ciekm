@@ -5,7 +5,7 @@ import { UpdateGebruikerDto } from './dto/update-gebruiker.dto';
 @Injectable()
 export class GebruikerService {
   create(createGebruikerDto: CreateGebruikerDto) {
-    return 'woot' 
+    return 'woot2' 
   }
 
   findAll() {
