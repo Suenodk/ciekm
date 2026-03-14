@@ -1,0 +1,21 @@
+<div id="login-pagina">
+    <div id="login-form">
+        @if (isOnLogin()) 
+        {
+            <h1>Login</h1>
+            <input type="text" placeholder="naam">
+            <input type="password" placeholder="wachtwoord">
+            <button (click)="login()" >Login</button>
+            <button (click)="toggleLogin()">Registreer</button>
+
+        }@else {
+            <h1>Registreer</h1>
+            <input type="text" placeholder="naam">
+            <input type="password" placeholder="wachtwoord">
+            <button (click)="registreer()">Registreer</button>
+            <button (click)="toggleLogin()">Login</button>
+        }
+    </div>
+    
+    
+</div>

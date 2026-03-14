@@ -9,6 +9,6 @@ export class LijstjeService {
   constructor() {}
 
   getWensen(): string[] {
-    return ['Alice', 'Bob', 'Charlie']; // Example names
+    return ['geweer', 'foto van Ted en Raoul die zoenen', 'Havermout']; // Example names
   }
 }
