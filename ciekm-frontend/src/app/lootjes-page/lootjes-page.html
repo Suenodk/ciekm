@@ -1,7 +1,7 @@
-<div>
-    <input type="text" placeholder="Deelnemer naam" [(ngModel)]="nieuweDeelnemerNaam" />
+<form>
+    <input name="deelnemer naam" type="text" placeholder="Deelnemer naam" [(ngModel)]="nieuweDeelnemerNaam" />
     <button (click)="deelnemerToevoegen()">Toevoegen</button>
-</div>
+</form>
 <ul>
     @for(deelnemer of deelnemers(); track deelnemer) {
         <li>{{deelnemer}}</li>
