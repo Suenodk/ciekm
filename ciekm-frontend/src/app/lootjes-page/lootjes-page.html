@@ -1,2 +1,11 @@
+<div>
+    <input type="text" placeholder="Deelnemer naam" [(ngModel)]="nieuweDeelnemerNaam" />
+    <button (click)="deelnemerToevoegen()">Toevoegen</button>
+</div>
+<ul>
+    @for(deelnemer of deelnemers(); track deelnemer) {
+        <li>{{deelnemer}}</li>
+    }
+</ul>
 <button (click)="lootjeTrekken()">Lootje trekken</button>
 <p>getrokken lootje: {{getrokkenLootje()}}</p>
