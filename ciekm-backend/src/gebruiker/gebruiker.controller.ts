@@ -9,7 +9,7 @@ export class GebruikerController {
 
   @Post()
   create(@Body() createGebruikerDto: CreateGebruikerDto) {
-    return this.gebruikerService.create(createGebruikerDto);
+    return this.gebruikerService.create({name: createGebruikerDto.naam});
   }
 
   @Get()

@@ -55,3 +55,5 @@ build/config\.gypi
 pnpm-lock.yaml
 /.history
 /generated/prisma
+
+.env.local

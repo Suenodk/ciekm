@@ -6,6 +6,12 @@ info:
 http:
   method: POST
   url: "{{url}}/gebruiker"
+  body:
+    type: json
+    data: |-
+      {
+        "naam": "el tigre"
+      }
   auth: inherit
 
 settings:
