@@ -53,7 +53,9 @@ export const AnyNull = runtime.AnyNull
 export const ModelName = {
   Gebruiker: 'Gebruiker',
   Lijstje: 'Lijstje',
-  LijstjeItem: 'LijstjeItem'
+  LijstjeItem: 'LijstjeItem',
+  Groep: 'Groep',
+  Bericht: 'Bericht'
 } as const
 
 export type ModelName = (typeof ModelName)[keyof typeof ModelName]
@@ -99,6 +101,25 @@ export const LijstjeItemScalarFieldEnum = {
 export type LijstjeItemScalarFieldEnum = (typeof LijstjeItemScalarFieldEnum)[keyof typeof LijstjeItemScalarFieldEnum]
 
 
+export const GroepScalarFieldEnum = {
+  id: 'id',
+  naam: 'naam',
+  omschrijving: 'omschrijving',
+  bijeenkomstDatum: 'bijeenkomstDatum'
+} as const
+
+export type GroepScalarFieldEnum = (typeof GroepScalarFieldEnum)[keyof typeof GroepScalarFieldEnum]
+
+
+export const BerichtScalarFieldEnum = {
+  id: 'id',
+  afzenderId: 'afzenderId',
+  groepId: 'groepId'
+} as const
+
+export type BerichtScalarFieldEnum = (typeof BerichtScalarFieldEnum)[keyof typeof BerichtScalarFieldEnum]
+
+
 export const SortOrder = {
   asc: 'asc',
   desc: 'desc'
@@ -113,4 +134,12 @@ export const QueryMode = {
 } as const
 
 export type QueryMode = (typeof QueryMode)[keyof typeof QueryMode]
+
+
+export const NullsOrder = {
+  first: 'first',
+  last: 'last'
+} as const
+
+export type NullsOrder = (typeof NullsOrder)[keyof typeof NullsOrder]
 

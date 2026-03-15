@@ -9,23 +9,42 @@ datasource db {
 }
 
 model Gebruiker {
-  id   String @id @default(uuid())
-  name String @unique
-  password String
-  lijstjes Lijstje[]
+  id                 String    @id @default(uuid())
+  name               String    @unique
+  password           String
+  lijstjes           Lijstje[]
+  groepen            Groep[]
+  verzondenBerichten Bericht[]
 }
 
 model Lijstje {
-  id   String @id @default(uuid())
-  naam String
-  gebruiker Gebruiker @relation(fields: [gebruikerId], references: [id])
-  gebruikerId String
+  id           String        @id @default(uuid())
+  naam         String
+  gebruiker    Gebruiker     @relation(fields: [gebruikerId], references: [id])
+  gebruikerId  String
   lijstjeItems LijstjeItem[]
 }
 
 model LijstjeItem {
-  id   String @id @default(uuid())
-  naam String
-  lijstje Lijstje @relation(fields: [lijstjeId], references: [id])
+  id        String  @id @default(uuid())
+  naam      String
+  lijstje   Lijstje @relation(fields: [lijstjeId], references: [id])
   lijstjeId String
+}
+
+model Groep {
+  id               String      @id @default(uuid())
+  naam             String
+  omschrijving     String?
+  bijeenkomstDatum DateTime?
+  gebruikers       Gebruiker[]
+  berichten        Bericht[]
+}
+
+model Bericht {
+  id         String    @id @default(uuid())
+  afzender   Gebruiker @relation(fields: [afzenderId], references: [id])
+  afzenderId String
+  groep      Groep?    @relation(fields: [groepId], references: [id])
+  groepId    String?
 }

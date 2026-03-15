@@ -32,3 +32,13 @@ export type Lijstje = Prisma.LijstjeModel
  * 
  */
 export type LijstjeItem = Prisma.LijstjeItemModel
+/**
+ * Model Groep
+ * 
+ */
+export type Groep = Prisma.GroepModel
+/**
+ * Model Bericht
+ * 
+ */
+export type Bericht = Prisma.BerichtModel
