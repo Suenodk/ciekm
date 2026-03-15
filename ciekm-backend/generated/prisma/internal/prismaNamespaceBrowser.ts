@@ -51,7 +51,9 @@ export const AnyNull = runtime.AnyNull
 
 
 export const ModelName = {
-  Gebruiker: 'Gebruiker'
+  Gebruiker: 'Gebruiker',
+  Lijstje: 'Lijstje',
+  LijstjeItem: 'LijstjeItem'
 } as const
 
 export type ModelName = (typeof ModelName)[keyof typeof ModelName]
@@ -72,10 +74,29 @@ export type TransactionIsolationLevel = (typeof TransactionIsolationLevel)[keyof
 
 export const GebruikerScalarFieldEnum = {
   id: 'id',
-  name: 'name'
+  name: 'name',
+  password: 'password'
 } as const
 
 export type GebruikerScalarFieldEnum = (typeof GebruikerScalarFieldEnum)[keyof typeof GebruikerScalarFieldEnum]
+
+
+export const LijstjeScalarFieldEnum = {
+  id: 'id',
+  naam: 'naam',
+  gebruikerId: 'gebruikerId'
+} as const
+
+export type LijstjeScalarFieldEnum = (typeof LijstjeScalarFieldEnum)[keyof typeof LijstjeScalarFieldEnum]
+
+
+export const LijstjeItemScalarFieldEnum = {
+  id: 'id',
+  naam: 'naam',
+  lijstjeId: 'lijstjeId'
+} as const
+
+export type LijstjeItemScalarFieldEnum = (typeof LijstjeItemScalarFieldEnum)[keyof typeof LijstjeItemScalarFieldEnum]
 
 
 export const SortOrder = {
