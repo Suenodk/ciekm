@@ -384,7 +384,9 @@ type FieldRefInputType<Model, FieldType> = Model extends never ? never : FieldRe
 
 
 export const ModelName = {
-  Gebruiker: 'Gebruiker'
+  Gebruiker: 'Gebruiker',
+  Lijstje: 'Lijstje',
+  LijstjeItem: 'LijstjeItem'
 } as const
 
 export type ModelName = (typeof ModelName)[keyof typeof ModelName]
@@ -400,7 +402,7 @@ export type TypeMap<ExtArgs extends runtime.Types.Extensions.InternalArgs = runt
     omit: GlobalOmitOptions
   }
   meta: {
-    modelProps: "gebruiker"
+    modelProps: "gebruiker" | "lijstje" | "lijstjeItem"
     txIsolationLevel: TransactionIsolationLevel
   }
   model: {
@@ -478,6 +480,154 @@ export type TypeMap<ExtArgs extends runtime.Types.Extensions.InternalArgs = runt
         }
       }
     }
+    Lijstje: {
+      payload: Prisma.$LijstjePayload<ExtArgs>
+      fields: Prisma.LijstjeFieldRefs
+      operations: {
+        findUnique: {
+          args: Prisma.LijstjeFindUniqueArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$LijstjePayload> | null
+        }
+        findUniqueOrThrow: {
+          args: Prisma.LijstjeFindUniqueOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$LijstjePayload>
+        }
+        findFirst: {
+          args: Prisma.LijstjeFindFirstArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$LijstjePayload> | null
+        }
+        findFirstOrThrow: {
+          args: Prisma.LijstjeFindFirstOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$LijstjePayload>
+        }
+        findMany: {
+          args: Prisma.LijstjeFindManyArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$LijstjePayload>[]
+        }
+        create: {
+          args: Prisma.LijstjeCreateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$LijstjePayload>
+        }
+        createMany: {
+          args: Prisma.LijstjeCreateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        createManyAndReturn: {
+          args: Prisma.LijstjeCreateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$LijstjePayload>[]
+        }
+        delete: {
+          args: Prisma.LijstjeDeleteArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$LijstjePayload>
+        }
+        update: {
+          args: Prisma.LijstjeUpdateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$LijstjePayload>
+        }
+        deleteMany: {
+          args: Prisma.LijstjeDeleteManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateMany: {
+          args: Prisma.LijstjeUpdateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateManyAndReturn: {
+          args: Prisma.LijstjeUpdateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$LijstjePayload>[]
+        }
+        upsert: {
+          args: Prisma.LijstjeUpsertArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$LijstjePayload>
+        }
+        aggregate: {
+          args: Prisma.LijstjeAggregateArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AggregateLijstje>
+        }
+        groupBy: {
+          args: Prisma.LijstjeGroupByArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.LijstjeGroupByOutputType>[]
+        }
+        count: {
+          args: Prisma.LijstjeCountArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.LijstjeCountAggregateOutputType> | number
+        }
+      }
+    }
+    LijstjeItem: {
+      payload: Prisma.$LijstjeItemPayload<ExtArgs>
+      fields: Prisma.LijstjeItemFieldRefs
+      operations: {
+        findUnique: {
+          args: Prisma.LijstjeItemFindUniqueArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$LijstjeItemPayload> | null
+        }
+        findUniqueOrThrow: {
+          args: Prisma.LijstjeItemFindUniqueOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$LijstjeItemPayload>
+        }
+        findFirst: {
+          args: Prisma.LijstjeItemFindFirstArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$LijstjeItemPayload> | null
+        }
+        findFirstOrThrow: {
+          args: Prisma.LijstjeItemFindFirstOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$LijstjeItemPayload>
+        }
+        findMany: {
+          args: Prisma.LijstjeItemFindManyArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$LijstjeItemPayload>[]
+        }
+        create: {
+          args: Prisma.LijstjeItemCreateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$LijstjeItemPayload>
+        }
+        createMany: {
+          args: Prisma.LijstjeItemCreateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        createManyAndReturn: {
+          args: Prisma.LijstjeItemCreateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$LijstjeItemPayload>[]
+        }
+        delete: {
+          args: Prisma.LijstjeItemDeleteArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$LijstjeItemPayload>
+        }
+        update: {
+          args: Prisma.LijstjeItemUpdateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$LijstjeItemPayload>
+        }
+        deleteMany: {
+          args: Prisma.LijstjeItemDeleteManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateMany: {
+          args: Prisma.LijstjeItemUpdateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateManyAndReturn: {
+          args: Prisma.LijstjeItemUpdateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$LijstjeItemPayload>[]
+        }
+        upsert: {
+          args: Prisma.LijstjeItemUpsertArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$LijstjeItemPayload>
+        }
+        aggregate: {
+          args: Prisma.LijstjeItemAggregateArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AggregateLijstjeItem>
+        }
+        groupBy: {
+          args: Prisma.LijstjeItemGroupByArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.LijstjeItemGroupByOutputType>[]
+        }
+        count: {
+          args: Prisma.LijstjeItemCountArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.LijstjeItemCountAggregateOutputType> | number
+        }
+      }
+    }
   }
 } & {
   other: {
@@ -524,6 +674,24 @@ export const GebruikerScalarFieldEnum = {
 } as const
 
 export type GebruikerScalarFieldEnum = (typeof GebruikerScalarFieldEnum)[keyof typeof GebruikerScalarFieldEnum]
+
+
+export const LijstjeScalarFieldEnum = {
+  id: 'id',
+  naam: 'naam',
+  gebruikerId: 'gebruikerId'
+} as const
+
+export type LijstjeScalarFieldEnum = (typeof LijstjeScalarFieldEnum)[keyof typeof LijstjeScalarFieldEnum]
+
+
+export const LijstjeItemScalarFieldEnum = {
+  id: 'id',
+  naam: 'naam',
+  lijstjeId: 'lijstjeId'
+} as const
+
+export type LijstjeItemScalarFieldEnum = (typeof LijstjeItemScalarFieldEnum)[keyof typeof LijstjeItemScalarFieldEnum]
 
 
 export const SortOrder = {
@@ -671,6 +839,8 @@ export type PrismaClientOptions = ({
 }
 export type GlobalOmitConfig = {
   gebruiker?: Prisma.GebruikerOmit
+  lijstje?: Prisma.LijstjeOmit
+  lijstjeItem?: Prisma.LijstjeItemOmit
 }
 
 /* Types for Logging */

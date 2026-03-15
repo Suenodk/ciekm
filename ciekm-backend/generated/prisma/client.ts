@@ -44,3 +44,13 @@ export { Prisma }
  * 
  */
 export type Gebruiker = Prisma.GebruikerModel
+/**
+ * Model Lijstje
+ * 
+ */
+export type Lijstje = Prisma.LijstjeModel
+/**
+ * Model LijstjeItem
+ * 
+ */
+export type LijstjeItem = Prisma.LijstjeItemModel
