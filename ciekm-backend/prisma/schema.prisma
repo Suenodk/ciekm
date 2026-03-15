@@ -11,4 +11,21 @@ datasource db {
 model Gebruiker {
   id   String @id @default(uuid())
   name String @unique
+  password String
+  lijstjes Lijstje[]
+}
+
+model Lijstje {
+  id   String @id @default(uuid())
+  naam String
+  gebruiker Gebruiker @relation(fields: [gebruikerId], references: [id])
+  gebruikerId String
+  lijstjeItems LijstjeItem[]
+}
+
+model LijstjeItem {
+  id   String @id @default(uuid())
+  naam String
+  lijstje Lijstje @relation(fields: [lijstjeId], references: [id])
+  lijstjeId String
 }
