@@ -16,10 +16,6 @@ export class GroepService {
             return { errorMessage: "Deze groep is onbestaand omdat deze geen name heeft gekregen xd" }
         }
 
-        if (bijeenkomstDatum !== null) {
-
-        }
-
         const existingGebruiker = await this.prisma.gebruiker.findFirst({ where: { id: gebruikerId } });
 
         if (existingGebruiker === null) {
