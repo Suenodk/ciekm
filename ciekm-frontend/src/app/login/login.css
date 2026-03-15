@@ -6,8 +6,9 @@
 #login-form {
     display: grid;
     grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
-    grid-template-columns: 5% 1fr 5%;
+    grid-template-columns: 20% 1fr 20%;
     border: 1px solid black;
+    row-gap: 30px;
 }
 
 #login-form > * {
