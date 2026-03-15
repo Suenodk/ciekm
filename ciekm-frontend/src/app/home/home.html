@@ -1,2 +1,31 @@
+<div id="homePage">
+    <div class="left-column">
+        <div id="panel-lootje">
+            <h1>Je lootje</h1>
+            <h2 id="lootje-info">Je hebt nog geen lootje getrokken</h2>
+            <button class="square-button" [routerLink]="['/lootjes']">Ga naar lootjeTrekken</button>
+        </div>
+    
+        <div id="panel-lijstje">
+            <h1>Verlanglijstje</h1>
+            <h2 id="verlang-lijst-info">Je hebt nog geen Verlanglijstje</h2>
+            <button class="square-button" [routerLink]="['/lijstje']">Maak een lijstje</button>
+        </div>
+    </div>
+    <div class="middle-column">
 
- <button class="square-button" [routerLink]="['/lootjes']">Ga naar lootjeTrekken</button>
+    </div>
+
+    <div class="right-column">
+        <div id="groep-panel">
+            <h1>Groepdeelenemers</h1>
+            @for (naam of deelnemers(); track $index){
+                <a>{{ naam }}</a>
+            }
+            <button class="square-button">Nodig een persoon uit</button>
+        </div>    
+    </div>
+    
+</div>
+ 
+ 

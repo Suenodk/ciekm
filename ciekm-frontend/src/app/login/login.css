@@ -1,0 +1,11 @@
+#login-page {
+    display: grid;
+    grid-template-columns: 1fr 50% 1fr;
+}
+
+#login-form {
+    display: grid;
+    grid-template-rows: auto;
+    grid-template-columns: 5% 1fr 5%;
+    border: 1px black;
+}

@@ -1,0 +1,98 @@
+/* Homepage container: full width grid */
+#homePage {
+  display: grid;
+  grid-template-columns: 33% 1fr 33%; /* 25% for panels, rest empty */
+  gap: 20px;
+  padding: 20px;
+  min-height: 100vh;
+  background-color: #f5f5f5;
+  box-sizing: border-box;
+}
+
+/* Left column container */
+#homePage .left-column {
+  display: grid;
+  grid-auto-rows: auto;   /* each panel takes its own height */
+  gap: 20px;              /* space between panels */
+}
+
+/* Style each panel */
+#homePage .left-column > div {
+  background: linear-gradient(135deg, #e0e0e0, #ffffff);
+  border-radius: 15px;
+  padding: 20px;
+  box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+
+  display: grid;
+  gap: 15px;              /* space between buttons inside panel */
+}
+
+#homePage .right-column {
+  display: grid;
+  grid-auto-rows: auto;   /* each panel takes its own height */
+  gap: 20px;              /* space between panels */
+}
+#homePage .right-column > div {
+  background: linear-gradient(135deg, #e0e0e0, #ffffff);
+  border-radius: 15px;
+  padding: 20px;
+  box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+
+  display: grid;
+  gap: 15px;              /* space between buttons inside panel */
+}
+
+#panel-lijstje {
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  min-height: 150px; /* lets it grow if needed */
+  padding: 20px;
+  gap: 10px;
+}
+#verlang-lijst-info {
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+#panel-lootje {
+    display: grid;
+  grid-template-rows: auto 1fr auto;
+  min-height: 150px; /* lets it grow if needed */
+  padding: 20px;
+  gap: 10px;
+}
+
+#lootje-info {
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+/* Buttons inside panels */
+.square-button {
+  background-color: #4caf50;
+  color: white;
+  border: none;
+  padding: 15px;
+  font-size: 16px;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  width: 100%;
+  text-align: center;
+}
+
+.square-button:hover {
+  background-color: #45a049;
+  transform: scale(1.02);
+}
+
+
+
+/* Make it responsive on small screens */
+@media (max-width: 600px) {
+  #homePage {
+    grid-template-columns: 1fr; /* Stack panels vertically */
+  }
+}
