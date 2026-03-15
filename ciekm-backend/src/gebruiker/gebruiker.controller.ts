@@ -1,15 +1,22 @@
-import { Controller, Get, Post, Body, Patch, Param, Delete } from '@nestjs/common';
+import { BadRequestException, Body, Controller, Delete, Get, Param, Patch, Post } from '@nestjs/common';
+import { CreateGebruikerResponseDto } from './dto/create-gebruiker-response.dto';
 import { CreateGebruikerDto } from './dto/create-gebruiker.dto';
-import { GebruikerService } from './gebruiker.service';
 import { UpdateGebruikerDto } from './dto/update-gebruiker.dto';
+import { GebruikerService } from './gebruiker.service';
 
 @Controller('gebruiker')
 export class GebruikerController {
-  constructor(private readonly gebruikerService: GebruikerService) {}
+  constructor(private readonly gebruikerService: GebruikerService) { }
 
   @Post()
-  create(@Body() createGebruikerDto: CreateGebruikerDto) {
-    return this.gebruikerService.create({name: createGebruikerDto.naam});
+  async create(@Body() createGebruikerDto: CreateGebruikerDto): Promise<CreateGebruikerResponseDto> {
+    const result = await this.gebruikerService.create(createGebruikerDto.naam, createGebruikerDto.password);
+
+    if(result.errorMessage) {
+      throw new BadRequestException(result.errorMessage);
+    }
+
+    return result;
   }
 
   @Get()

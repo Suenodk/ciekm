@@ -1,0 +1,22 @@
+info:
+  name: lijstje
+  type: http
+  seq: 1
+
+http:
+  method: POST
+  url: "{{url}}/lijstje"
+  body:
+    type: json
+    data: |-
+      {
+        "gebruikerId": "225129c7-27c9-4b21-8140-70adb38eac22",
+        "naam": "Verjaardagslijstje"
+      }
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5

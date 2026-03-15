@@ -27,16 +27,19 @@ export type AggregateGebruiker = {
 export type GebruikerMinAggregateOutputType = {
   id: string | null
   name: string | null
+  password: string | null
 }
 
 export type GebruikerMaxAggregateOutputType = {
   id: string | null
   name: string | null
+  password: string | null
 }
 
 export type GebruikerCountAggregateOutputType = {
   id: number
   name: number
+  password: number
   _all: number
 }
 
@@ -44,16 +47,19 @@ export type GebruikerCountAggregateOutputType = {
 export type GebruikerMinAggregateInputType = {
   id?: true
   name?: true
+  password?: true
 }
 
 export type GebruikerMaxAggregateInputType = {
   id?: true
   name?: true
+  password?: true
 }
 
 export type GebruikerCountAggregateInputType = {
   id?: true
   name?: true
+  password?: true
   _all?: true
 }
 
@@ -132,6 +138,7 @@ export type GebruikerGroupByArgs<ExtArgs extends runtime.Types.Extensions.Intern
 export type GebruikerGroupByOutputType = {
   id: string
   name: string
+  password: string
   _count: GebruikerCountAggregateOutputType | null
   _min: GebruikerMinAggregateOutputType | null
   _max: GebruikerMaxAggregateOutputType | null
@@ -158,11 +165,15 @@ export type GebruikerWhereInput = {
   NOT?: Prisma.GebruikerWhereInput | Prisma.GebruikerWhereInput[]
   id?: Prisma.StringFilter<"Gebruiker"> | string
   name?: Prisma.StringFilter<"Gebruiker"> | string
+  password?: Prisma.StringFilter<"Gebruiker"> | string
+  lijstjes?: Prisma.LijstjeListRelationFilter
 }
 
 export type GebruikerOrderByWithRelationInput = {
   id?: Prisma.SortOrder
   name?: Prisma.SortOrder
+  password?: Prisma.SortOrder
+  lijstjes?: Prisma.LijstjeOrderByRelationAggregateInput
 }
 
 export type GebruikerWhereUniqueInput = Prisma.AtLeast<{
@@ -171,11 +182,14 @@ export type GebruikerWhereUniqueInput = Prisma.AtLeast<{
   AND?: Prisma.GebruikerWhereInput | Prisma.GebruikerWhereInput[]
   OR?: Prisma.GebruikerWhereInput[]
   NOT?: Prisma.GebruikerWhereInput | Prisma.GebruikerWhereInput[]
+  password?: Prisma.StringFilter<"Gebruiker"> | string
+  lijstjes?: Prisma.LijstjeListRelationFilter
 }, "id" | "name">
 
 export type GebruikerOrderByWithAggregationInput = {
   id?: Prisma.SortOrder
   name?: Prisma.SortOrder
+  password?: Prisma.SortOrder
   _count?: Prisma.GebruikerCountOrderByAggregateInput
   _max?: Prisma.GebruikerMaxOrderByAggregateInput
   _min?: Prisma.GebruikerMinOrderByAggregateInput
@@ -187,92 +201,210 @@ export type GebruikerScalarWhereWithAggregatesInput = {
   NOT?: Prisma.GebruikerScalarWhereWithAggregatesInput | Prisma.GebruikerScalarWhereWithAggregatesInput[]
   id?: Prisma.StringWithAggregatesFilter<"Gebruiker"> | string
   name?: Prisma.StringWithAggregatesFilter<"Gebruiker"> | string
+  password?: Prisma.StringWithAggregatesFilter<"Gebruiker"> | string
 }
 
 export type GebruikerCreateInput = {
   id?: string
   name: string
+  password: string
+  lijstjes?: Prisma.LijstjeCreateNestedManyWithoutGebruikerInput
 }
 
 export type GebruikerUncheckedCreateInput = {
   id?: string
   name: string
+  password: string
+  lijstjes?: Prisma.LijstjeUncheckedCreateNestedManyWithoutGebruikerInput
 }
 
 export type GebruikerUpdateInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   name?: Prisma.StringFieldUpdateOperationsInput | string
+  password?: Prisma.StringFieldUpdateOperationsInput | string
+  lijstjes?: Prisma.LijstjeUpdateManyWithoutGebruikerNestedInput
 }
 
 export type GebruikerUncheckedUpdateInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   name?: Prisma.StringFieldUpdateOperationsInput | string
+  password?: Prisma.StringFieldUpdateOperationsInput | string
+  lijstjes?: Prisma.LijstjeUncheckedUpdateManyWithoutGebruikerNestedInput
 }
 
 export type GebruikerCreateManyInput = {
   id?: string
   name: string
+  password: string
 }
 
 export type GebruikerUpdateManyMutationInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   name?: Prisma.StringFieldUpdateOperationsInput | string
+  password?: Prisma.StringFieldUpdateOperationsInput | string
 }
 
 export type GebruikerUncheckedUpdateManyInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   name?: Prisma.StringFieldUpdateOperationsInput | string
+  password?: Prisma.StringFieldUpdateOperationsInput | string
 }
 
 export type GebruikerCountOrderByAggregateInput = {
   id?: Prisma.SortOrder
   name?: Prisma.SortOrder
+  password?: Prisma.SortOrder
 }
 
 export type GebruikerMaxOrderByAggregateInput = {
   id?: Prisma.SortOrder
   name?: Prisma.SortOrder
+  password?: Prisma.SortOrder
 }
 
 export type GebruikerMinOrderByAggregateInput = {
   id?: Prisma.SortOrder
   name?: Prisma.SortOrder
+  password?: Prisma.SortOrder
+}
+
+export type GebruikerScalarRelationFilter = {
+  is?: Prisma.GebruikerWhereInput
+  isNot?: Prisma.GebruikerWhereInput
 }
 
 export type StringFieldUpdateOperationsInput = {
   set?: string
 }
 
+export type GebruikerCreateNestedOneWithoutLijstjesInput = {
+  create?: Prisma.XOR<Prisma.GebruikerCreateWithoutLijstjesInput, Prisma.GebruikerUncheckedCreateWithoutLijstjesInput>
+  connectOrCreate?: Prisma.GebruikerCreateOrConnectWithoutLijstjesInput
+  connect?: Prisma.GebruikerWhereUniqueInput
+}
+
+export type GebruikerUpdateOneRequiredWithoutLijstjesNestedInput = {
+  create?: Prisma.XOR<Prisma.GebruikerCreateWithoutLijstjesInput, Prisma.GebruikerUncheckedCreateWithoutLijstjesInput>
+  connectOrCreate?: Prisma.GebruikerCreateOrConnectWithoutLijstjesInput
+  upsert?: Prisma.GebruikerUpsertWithoutLijstjesInput
+  connect?: Prisma.GebruikerWhereUniqueInput
+  update?: Prisma.XOR<Prisma.XOR<Prisma.GebruikerUpdateToOneWithWhereWithoutLijstjesInput, Prisma.GebruikerUpdateWithoutLijstjesInput>, Prisma.GebruikerUncheckedUpdateWithoutLijstjesInput>
+}
+
+export type GebruikerCreateWithoutLijstjesInput = {
+  id?: string
+  name: string
+  password: string
+}
+
+export type GebruikerUncheckedCreateWithoutLijstjesInput = {
+  id?: string
+  name: string
+  password: string
+}
+
+export type GebruikerCreateOrConnectWithoutLijstjesInput = {
+  where: Prisma.GebruikerWhereUniqueInput
+  create: Prisma.XOR<Prisma.GebruikerCreateWithoutLijstjesInput, Prisma.GebruikerUncheckedCreateWithoutLijstjesInput>
+}
+
+export type GebruikerUpsertWithoutLijstjesInput = {
+  update: Prisma.XOR<Prisma.GebruikerUpdateWithoutLijstjesInput, Prisma.GebruikerUncheckedUpdateWithoutLijstjesInput>
+  create: Prisma.XOR<Prisma.GebruikerCreateWithoutLijstjesInput, Prisma.GebruikerUncheckedCreateWithoutLijstjesInput>
+  where?: Prisma.GebruikerWhereInput
+}
+
+export type GebruikerUpdateToOneWithWhereWithoutLijstjesInput = {
+  where?: Prisma.GebruikerWhereInput
+  data: Prisma.XOR<Prisma.GebruikerUpdateWithoutLijstjesInput, Prisma.GebruikerUncheckedUpdateWithoutLijstjesInput>
+}
+
+export type GebruikerUpdateWithoutLijstjesInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  name?: Prisma.StringFieldUpdateOperationsInput | string
+  password?: Prisma.StringFieldUpdateOperationsInput | string
+}
+
+export type GebruikerUncheckedUpdateWithoutLijstjesInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  name?: Prisma.StringFieldUpdateOperationsInput | string
+  password?: Prisma.StringFieldUpdateOperationsInput | string
+}
+
+
+/**
+ * Count Type GebruikerCountOutputType
+ */
+
+export type GebruikerCountOutputType = {
+  lijstjes: number
+}
+
+export type GebruikerCountOutputTypeSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  lijstjes?: boolean | GebruikerCountOutputTypeCountLijstjesArgs
+}
+
+/**
+ * GebruikerCountOutputType without action
+ */
+export type GebruikerCountOutputTypeDefaultArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the GebruikerCountOutputType
+   */
+  select?: Prisma.GebruikerCountOutputTypeSelect<ExtArgs> | null
+}
+
+/**
+ * GebruikerCountOutputType without action
+ */
+export type GebruikerCountOutputTypeCountLijstjesArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  where?: Prisma.LijstjeWhereInput
+}
 
 
 export type GebruikerSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
   id?: boolean
   name?: boolean
+  password?: boolean
+  lijstjes?: boolean | Prisma.Gebruiker$lijstjesArgs<ExtArgs>
+  _count?: boolean | Prisma.GebruikerCountOutputTypeDefaultArgs<ExtArgs>
 }, ExtArgs["result"]["gebruiker"]>
 
 export type GebruikerSelectCreateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
   id?: boolean
   name?: boolean
+  password?: boolean
 }, ExtArgs["result"]["gebruiker"]>
 
 export type GebruikerSelectUpdateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
   id?: boolean
   name?: boolean
+  password?: boolean
 }, ExtArgs["result"]["gebruiker"]>
 
 export type GebruikerSelectScalar = {
   id?: boolean
   name?: boolean
+  password?: boolean
 }
 
-export type GebruikerOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "name", ExtArgs["result"]["gebruiker"]>
+export type GebruikerOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "name" | "password", ExtArgs["result"]["gebruiker"]>
+export type GebruikerInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  lijstjes?: boolean | Prisma.Gebruiker$lijstjesArgs<ExtArgs>
+  _count?: boolean | Prisma.GebruikerCountOutputTypeDefaultArgs<ExtArgs>
+}
+export type GebruikerIncludeCreateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {}
+export type GebruikerIncludeUpdateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {}
 
 export type $GebruikerPayload<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   name: "Gebruiker"
-  objects: {}
+  objects: {
+    lijstjes: Prisma.$LijstjePayload<ExtArgs>[]
+  }
   scalars: runtime.Types.Extensions.GetPayloadResult<{
     id: string
     name: string
+    password: string
   }, ExtArgs["result"]["gebruiker"]>
   composites: {}
 }
@@ -667,6 +799,7 @@ readonly fields: GebruikerFieldRefs;
  */
 export interface Prisma__GebruikerClient<T, Null = never, ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
   readonly [Symbol.toStringTag]: "PrismaPromise"
+  lijstjes<T extends Prisma.Gebruiker$lijstjesArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Gebruiker$lijstjesArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$LijstjePayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   /**
    * Attaches callbacks for the resolution and/or rejection of the Promise.
    * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -698,6 +831,7 @@ export interface Prisma__GebruikerClient<T, Null = never, ExtArgs extends runtim
 export interface GebruikerFieldRefs {
   readonly id: Prisma.FieldRef<"Gebruiker", 'String'>
   readonly name: Prisma.FieldRef<"Gebruiker", 'String'>
+  readonly password: Prisma.FieldRef<"Gebruiker", 'String'>
 }
     
 
@@ -714,6 +848,10 @@ export type GebruikerFindUniqueArgs<ExtArgs extends runtime.Types.Extensions.Int
    * Omit specific fields from the Gebruiker
    */
   omit?: Prisma.GebruikerOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.GebruikerInclude<ExtArgs> | null
   /**
    * Filter, which Gebruiker to fetch.
    */
@@ -733,6 +871,10 @@ export type GebruikerFindUniqueOrThrowArgs<ExtArgs extends runtime.Types.Extensi
    */
   omit?: Prisma.GebruikerOmit<ExtArgs> | null
   /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.GebruikerInclude<ExtArgs> | null
+  /**
    * Filter, which Gebruiker to fetch.
    */
   where: Prisma.GebruikerWhereUniqueInput
@@ -750,6 +892,10 @@ export type GebruikerFindFirstArgs<ExtArgs extends runtime.Types.Extensions.Inte
    * Omit specific fields from the Gebruiker
    */
   omit?: Prisma.GebruikerOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.GebruikerInclude<ExtArgs> | null
   /**
    * Filter, which Gebruiker to fetch.
    */
@@ -799,6 +945,10 @@ export type GebruikerFindFirstOrThrowArgs<ExtArgs extends runtime.Types.Extensio
    */
   omit?: Prisma.GebruikerOmit<ExtArgs> | null
   /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.GebruikerInclude<ExtArgs> | null
+  /**
    * Filter, which Gebruiker to fetch.
    */
   where?: Prisma.GebruikerWhereInput
@@ -846,6 +996,10 @@ export type GebruikerFindManyArgs<ExtArgs extends runtime.Types.Extensions.Inter
    * Omit specific fields from the Gebruiker
    */
   omit?: Prisma.GebruikerOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.GebruikerInclude<ExtArgs> | null
   /**
    * Filter, which Gebruikers to fetch.
    */
@@ -895,6 +1049,10 @@ export type GebruikerCreateArgs<ExtArgs extends runtime.Types.Extensions.Interna
    */
   omit?: Prisma.GebruikerOmit<ExtArgs> | null
   /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.GebruikerInclude<ExtArgs> | null
+  /**
    * The data needed to create a Gebruiker.
    */
   data: Prisma.XOR<Prisma.GebruikerCreateInput, Prisma.GebruikerUncheckedCreateInput>
@@ -942,6 +1100,10 @@ export type GebruikerUpdateArgs<ExtArgs extends runtime.Types.Extensions.Interna
    * Omit specific fields from the Gebruiker
    */
   omit?: Prisma.GebruikerOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.GebruikerInclude<ExtArgs> | null
   /**
    * The data needed to update a Gebruiker.
    */
@@ -1009,6 +1171,10 @@ export type GebruikerUpsertArgs<ExtArgs extends runtime.Types.Extensions.Interna
    */
   omit?: Prisma.GebruikerOmit<ExtArgs> | null
   /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.GebruikerInclude<ExtArgs> | null
+  /**
    * The filter to search for the Gebruiker to update in case it exists.
    */
   where: Prisma.GebruikerWhereUniqueInput
@@ -1035,6 +1201,10 @@ export type GebruikerDeleteArgs<ExtArgs extends runtime.Types.Extensions.Interna
    */
   omit?: Prisma.GebruikerOmit<ExtArgs> | null
   /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.GebruikerInclude<ExtArgs> | null
+  /**
    * Filter which Gebruiker to delete.
    */
   where: Prisma.GebruikerWhereUniqueInput
@@ -1055,6 +1225,30 @@ export type GebruikerDeleteManyArgs<ExtArgs extends runtime.Types.Extensions.Int
 }
 
 /**
+ * Gebruiker.lijstjes
+ */
+export type Gebruiker$lijstjesArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the Lijstje
+   */
+  select?: Prisma.LijstjeSelect<ExtArgs> | null
+  /**
+   * Omit specific fields from the Lijstje
+   */
+  omit?: Prisma.LijstjeOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.LijstjeInclude<ExtArgs> | null
+  where?: Prisma.LijstjeWhereInput
+  orderBy?: Prisma.LijstjeOrderByWithRelationInput | Prisma.LijstjeOrderByWithRelationInput[]
+  cursor?: Prisma.LijstjeWhereUniqueInput
+  take?: number
+  skip?: number
+  distinct?: Prisma.LijstjeScalarFieldEnum | Prisma.LijstjeScalarFieldEnum[]
+}
+
+/**
  * Gebruiker without action
  */
 export type GebruikerDefaultArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
@@ -1066,4 +1260,8 @@ export type GebruikerDefaultArgs<ExtArgs extends runtime.Types.Extensions.Intern
    * Omit specific fields from the Gebruiker
    */
   omit?: Prisma.GebruikerOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.GebruikerInclude<ExtArgs> | null
 }
