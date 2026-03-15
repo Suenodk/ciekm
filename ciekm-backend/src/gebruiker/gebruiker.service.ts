@@ -2,7 +2,7 @@ import { Injectable } from '@nestjs/common';
 import { PrismaService } from 'src/prisma.service';
 import { Validator } from 'src/validator/validator';
 import { CreateGebruikerResponseDto } from './dto/create-gebruiker-response.dto';
-import { UpdateGebruikerDto } from './dto/update-gebruiker.dto';
+import { GebruikerDto } from './dto/gebruiker.dto';
 
 @Injectable()
 export class GebruikerService {
@@ -29,19 +29,17 @@ export class GebruikerService {
     return { id: gebruikerEntity.id, naam: gebruikerEntity.name }
   }
 
-  findAll() {
-    return `This action returns all gebruiker`;
-  }
+  async getById(id: string): Promise<GebruikerDto> {
+    if(Validator.stringIsNullOrWhitespace(id)) {
+      return { errorMessage: "Wie ben jij? Wat is jouw IDEE?" }
+    }
 
-  findOne(id: number) {
-    return `This action returns a #${id} gebruiker`;
-  }
+    const existingGebruiker = await this.prisma.gebruiker.findFirst({ where: { id: id } });
 
-  update(id: number, updateGebruikerDto: UpdateGebruikerDto) {
-    return `This action updates a #${id} gebruiker`;
-  }
+    if (existingGebruiker === null) {
+      return { errorMessage: "Gebruiker niet gevonden" }
+    }
 
-  remove(id: number) {
-    return `This action removes a #${id} gebruiker`;
+    return { id: existingGebruiker.id, naam: existingGebruiker.name, password: existingGebruiker.password }
   }
 }

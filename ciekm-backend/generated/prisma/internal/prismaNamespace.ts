@@ -386,7 +386,9 @@ type FieldRefInputType<Model, FieldType> = Model extends never ? never : FieldRe
 export const ModelName = {
   Gebruiker: 'Gebruiker',
   Lijstje: 'Lijstje',
-  LijstjeItem: 'LijstjeItem'
+  LijstjeItem: 'LijstjeItem',
+  Groep: 'Groep',
+  Bericht: 'Bericht'
 } as const
 
 export type ModelName = (typeof ModelName)[keyof typeof ModelName]
@@ -402,7 +404,7 @@ export type TypeMap<ExtArgs extends runtime.Types.Extensions.InternalArgs = runt
     omit: GlobalOmitOptions
   }
   meta: {
-    modelProps: "gebruiker" | "lijstje" | "lijstjeItem"
+    modelProps: "gebruiker" | "lijstje" | "lijstjeItem" | "groep" | "bericht"
     txIsolationLevel: TransactionIsolationLevel
   }
   model: {
@@ -628,6 +630,154 @@ export type TypeMap<ExtArgs extends runtime.Types.Extensions.InternalArgs = runt
         }
       }
     }
+    Groep: {
+      payload: Prisma.$GroepPayload<ExtArgs>
+      fields: Prisma.GroepFieldRefs
+      operations: {
+        findUnique: {
+          args: Prisma.GroepFindUniqueArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$GroepPayload> | null
+        }
+        findUniqueOrThrow: {
+          args: Prisma.GroepFindUniqueOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$GroepPayload>
+        }
+        findFirst: {
+          args: Prisma.GroepFindFirstArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$GroepPayload> | null
+        }
+        findFirstOrThrow: {
+          args: Prisma.GroepFindFirstOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$GroepPayload>
+        }
+        findMany: {
+          args: Prisma.GroepFindManyArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$GroepPayload>[]
+        }
+        create: {
+          args: Prisma.GroepCreateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$GroepPayload>
+        }
+        createMany: {
+          args: Prisma.GroepCreateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        createManyAndReturn: {
+          args: Prisma.GroepCreateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$GroepPayload>[]
+        }
+        delete: {
+          args: Prisma.GroepDeleteArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$GroepPayload>
+        }
+        update: {
+          args: Prisma.GroepUpdateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$GroepPayload>
+        }
+        deleteMany: {
+          args: Prisma.GroepDeleteManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateMany: {
+          args: Prisma.GroepUpdateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateManyAndReturn: {
+          args: Prisma.GroepUpdateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$GroepPayload>[]
+        }
+        upsert: {
+          args: Prisma.GroepUpsertArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$GroepPayload>
+        }
+        aggregate: {
+          args: Prisma.GroepAggregateArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AggregateGroep>
+        }
+        groupBy: {
+          args: Prisma.GroepGroupByArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.GroepGroupByOutputType>[]
+        }
+        count: {
+          args: Prisma.GroepCountArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.GroepCountAggregateOutputType> | number
+        }
+      }
+    }
+    Bericht: {
+      payload: Prisma.$BerichtPayload<ExtArgs>
+      fields: Prisma.BerichtFieldRefs
+      operations: {
+        findUnique: {
+          args: Prisma.BerichtFindUniqueArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$BerichtPayload> | null
+        }
+        findUniqueOrThrow: {
+          args: Prisma.BerichtFindUniqueOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$BerichtPayload>
+        }
+        findFirst: {
+          args: Prisma.BerichtFindFirstArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$BerichtPayload> | null
+        }
+        findFirstOrThrow: {
+          args: Prisma.BerichtFindFirstOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$BerichtPayload>
+        }
+        findMany: {
+          args: Prisma.BerichtFindManyArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$BerichtPayload>[]
+        }
+        create: {
+          args: Prisma.BerichtCreateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$BerichtPayload>
+        }
+        createMany: {
+          args: Prisma.BerichtCreateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        createManyAndReturn: {
+          args: Prisma.BerichtCreateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$BerichtPayload>[]
+        }
+        delete: {
+          args: Prisma.BerichtDeleteArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$BerichtPayload>
+        }
+        update: {
+          args: Prisma.BerichtUpdateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$BerichtPayload>
+        }
+        deleteMany: {
+          args: Prisma.BerichtDeleteManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateMany: {
+          args: Prisma.BerichtUpdateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateManyAndReturn: {
+          args: Prisma.BerichtUpdateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$BerichtPayload>[]
+        }
+        upsert: {
+          args: Prisma.BerichtUpsertArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$BerichtPayload>
+        }
+        aggregate: {
+          args: Prisma.BerichtAggregateArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AggregateBericht>
+        }
+        groupBy: {
+          args: Prisma.BerichtGroupByArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.BerichtGroupByOutputType>[]
+        }
+        count: {
+          args: Prisma.BerichtCountArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.BerichtCountAggregateOutputType> | number
+        }
+      }
+    }
   }
 } & {
   other: {
@@ -694,6 +844,25 @@ export const LijstjeItemScalarFieldEnum = {
 export type LijstjeItemScalarFieldEnum = (typeof LijstjeItemScalarFieldEnum)[keyof typeof LijstjeItemScalarFieldEnum]
 
 
+export const GroepScalarFieldEnum = {
+  id: 'id',
+  naam: 'naam',
+  omschrijving: 'omschrijving',
+  bijeenkomstDatum: 'bijeenkomstDatum'
+} as const
+
+export type GroepScalarFieldEnum = (typeof GroepScalarFieldEnum)[keyof typeof GroepScalarFieldEnum]
+
+
+export const BerichtScalarFieldEnum = {
+  id: 'id',
+  afzenderId: 'afzenderId',
+  groepId: 'groepId'
+} as const
+
+export type BerichtScalarFieldEnum = (typeof BerichtScalarFieldEnum)[keyof typeof BerichtScalarFieldEnum]
+
+
 export const SortOrder = {
   asc: 'asc',
   desc: 'desc'
@@ -708,6 +877,14 @@ export const QueryMode = {
 } as const
 
 export type QueryMode = (typeof QueryMode)[keyof typeof QueryMode]
+
+
+export const NullsOrder = {
+  first: 'first',
+  last: 'last'
+} as const
+
+export type NullsOrder = (typeof NullsOrder)[keyof typeof NullsOrder]
 
 
 
@@ -727,6 +904,20 @@ export type StringFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 
  * Reference to a field of type 'String[]'
  */
 export type ListStringFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'String[]'>
+    
+
+
+/**
+ * Reference to a field of type 'DateTime'
+ */
+export type DateTimeFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'DateTime'>
+    
+
+
+/**
+ * Reference to a field of type 'DateTime[]'
+ */
+export type ListDateTimeFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'DateTime[]'>
     
 
 
@@ -841,6 +1032,8 @@ export type GlobalOmitConfig = {
   gebruiker?: Prisma.GebruikerOmit
   lijstje?: Prisma.LijstjeOmit
   lijstjeItem?: Prisma.LijstjeItemOmit
+  groep?: Prisma.GroepOmit
+  bericht?: Prisma.BerichtOmit
 }
 
 /* Types for Logging */

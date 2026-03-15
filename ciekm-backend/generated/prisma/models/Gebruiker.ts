@@ -167,6 +167,8 @@ export type GebruikerWhereInput = {
   name?: Prisma.StringFilter<"Gebruiker"> | string
   password?: Prisma.StringFilter<"Gebruiker"> | string
   lijstjes?: Prisma.LijstjeListRelationFilter
+  groepen?: Prisma.GroepListRelationFilter
+  verzondenBerichten?: Prisma.BerichtListRelationFilter
 }
 
 export type GebruikerOrderByWithRelationInput = {
@@ -174,6 +176,8 @@ export type GebruikerOrderByWithRelationInput = {
   name?: Prisma.SortOrder
   password?: Prisma.SortOrder
   lijstjes?: Prisma.LijstjeOrderByRelationAggregateInput
+  groepen?: Prisma.GroepOrderByRelationAggregateInput
+  verzondenBerichten?: Prisma.BerichtOrderByRelationAggregateInput
 }
 
 export type GebruikerWhereUniqueInput = Prisma.AtLeast<{
@@ -184,6 +188,8 @@ export type GebruikerWhereUniqueInput = Prisma.AtLeast<{
   NOT?: Prisma.GebruikerWhereInput | Prisma.GebruikerWhereInput[]
   password?: Prisma.StringFilter<"Gebruiker"> | string
   lijstjes?: Prisma.LijstjeListRelationFilter
+  groepen?: Prisma.GroepListRelationFilter
+  verzondenBerichten?: Prisma.BerichtListRelationFilter
 }, "id" | "name">
 
 export type GebruikerOrderByWithAggregationInput = {
@@ -209,6 +215,8 @@ export type GebruikerCreateInput = {
   name: string
   password: string
   lijstjes?: Prisma.LijstjeCreateNestedManyWithoutGebruikerInput
+  groepen?: Prisma.GroepCreateNestedManyWithoutGebruikersInput
+  verzondenBerichten?: Prisma.BerichtCreateNestedManyWithoutAfzenderInput
 }
 
 export type GebruikerUncheckedCreateInput = {
@@ -216,6 +224,8 @@ export type GebruikerUncheckedCreateInput = {
   name: string
   password: string
   lijstjes?: Prisma.LijstjeUncheckedCreateNestedManyWithoutGebruikerInput
+  groepen?: Prisma.GroepUncheckedCreateNestedManyWithoutGebruikersInput
+  verzondenBerichten?: Prisma.BerichtUncheckedCreateNestedManyWithoutAfzenderInput
 }
 
 export type GebruikerUpdateInput = {
@@ -223,6 +233,8 @@ export type GebruikerUpdateInput = {
   name?: Prisma.StringFieldUpdateOperationsInput | string
   password?: Prisma.StringFieldUpdateOperationsInput | string
   lijstjes?: Prisma.LijstjeUpdateManyWithoutGebruikerNestedInput
+  groepen?: Prisma.GroepUpdateManyWithoutGebruikersNestedInput
+  verzondenBerichten?: Prisma.BerichtUpdateManyWithoutAfzenderNestedInput
 }
 
 export type GebruikerUncheckedUpdateInput = {
@@ -230,6 +242,8 @@ export type GebruikerUncheckedUpdateInput = {
   name?: Prisma.StringFieldUpdateOperationsInput | string
   password?: Prisma.StringFieldUpdateOperationsInput | string
   lijstjes?: Prisma.LijstjeUncheckedUpdateManyWithoutGebruikerNestedInput
+  groepen?: Prisma.GroepUncheckedUpdateManyWithoutGebruikersNestedInput
+  verzondenBerichten?: Prisma.BerichtUncheckedUpdateManyWithoutAfzenderNestedInput
 }
 
 export type GebruikerCreateManyInput = {
@@ -273,6 +287,16 @@ export type GebruikerScalarRelationFilter = {
   isNot?: Prisma.GebruikerWhereInput
 }
 
+export type GebruikerListRelationFilter = {
+  every?: Prisma.GebruikerWhereInput
+  some?: Prisma.GebruikerWhereInput
+  none?: Prisma.GebruikerWhereInput
+}
+
+export type GebruikerOrderByRelationAggregateInput = {
+  _count?: Prisma.SortOrder
+}
+
 export type StringFieldUpdateOperationsInput = {
   set?: string
 }
@@ -291,16 +315,72 @@ export type GebruikerUpdateOneRequiredWithoutLijstjesNestedInput = {
   update?: Prisma.XOR<Prisma.XOR<Prisma.GebruikerUpdateToOneWithWhereWithoutLijstjesInput, Prisma.GebruikerUpdateWithoutLijstjesInput>, Prisma.GebruikerUncheckedUpdateWithoutLijstjesInput>
 }
 
+export type GebruikerCreateNestedManyWithoutGroepenInput = {
+  create?: Prisma.XOR<Prisma.GebruikerCreateWithoutGroepenInput, Prisma.GebruikerUncheckedCreateWithoutGroepenInput> | Prisma.GebruikerCreateWithoutGroepenInput[] | Prisma.GebruikerUncheckedCreateWithoutGroepenInput[]
+  connectOrCreate?: Prisma.GebruikerCreateOrConnectWithoutGroepenInput | Prisma.GebruikerCreateOrConnectWithoutGroepenInput[]
+  connect?: Prisma.GebruikerWhereUniqueInput | Prisma.GebruikerWhereUniqueInput[]
+}
+
+export type GebruikerUncheckedCreateNestedManyWithoutGroepenInput = {
+  create?: Prisma.XOR<Prisma.GebruikerCreateWithoutGroepenInput, Prisma.GebruikerUncheckedCreateWithoutGroepenInput> | Prisma.GebruikerCreateWithoutGroepenInput[] | Prisma.GebruikerUncheckedCreateWithoutGroepenInput[]
+  connectOrCreate?: Prisma.GebruikerCreateOrConnectWithoutGroepenInput | Prisma.GebruikerCreateOrConnectWithoutGroepenInput[]
+  connect?: Prisma.GebruikerWhereUniqueInput | Prisma.GebruikerWhereUniqueInput[]
+}
+
+export type GebruikerUpdateManyWithoutGroepenNestedInput = {
+  create?: Prisma.XOR<Prisma.GebruikerCreateWithoutGroepenInput, Prisma.GebruikerUncheckedCreateWithoutGroepenInput> | Prisma.GebruikerCreateWithoutGroepenInput[] | Prisma.GebruikerUncheckedCreateWithoutGroepenInput[]
+  connectOrCreate?: Prisma.GebruikerCreateOrConnectWithoutGroepenInput | Prisma.GebruikerCreateOrConnectWithoutGroepenInput[]
+  upsert?: Prisma.GebruikerUpsertWithWhereUniqueWithoutGroepenInput | Prisma.GebruikerUpsertWithWhereUniqueWithoutGroepenInput[]
+  set?: Prisma.GebruikerWhereUniqueInput | Prisma.GebruikerWhereUniqueInput[]
+  disconnect?: Prisma.GebruikerWhereUniqueInput | Prisma.GebruikerWhereUniqueInput[]
+  delete?: Prisma.GebruikerWhereUniqueInput | Prisma.GebruikerWhereUniqueInput[]
+  connect?: Prisma.GebruikerWhereUniqueInput | Prisma.GebruikerWhereUniqueInput[]
+  update?: Prisma.GebruikerUpdateWithWhereUniqueWithoutGroepenInput | Prisma.GebruikerUpdateWithWhereUniqueWithoutGroepenInput[]
+  updateMany?: Prisma.GebruikerUpdateManyWithWhereWithoutGroepenInput | Prisma.GebruikerUpdateManyWithWhereWithoutGroepenInput[]
+  deleteMany?: Prisma.GebruikerScalarWhereInput | Prisma.GebruikerScalarWhereInput[]
+}
+
+export type GebruikerUncheckedUpdateManyWithoutGroepenNestedInput = {
+  create?: Prisma.XOR<Prisma.GebruikerCreateWithoutGroepenInput, Prisma.GebruikerUncheckedCreateWithoutGroepenInput> | Prisma.GebruikerCreateWithoutGroepenInput[] | Prisma.GebruikerUncheckedCreateWithoutGroepenInput[]
+  connectOrCreate?: Prisma.GebruikerCreateOrConnectWithoutGroepenInput | Prisma.GebruikerCreateOrConnectWithoutGroepenInput[]
+  upsert?: Prisma.GebruikerUpsertWithWhereUniqueWithoutGroepenInput | Prisma.GebruikerUpsertWithWhereUniqueWithoutGroepenInput[]
+  set?: Prisma.GebruikerWhereUniqueInput | Prisma.GebruikerWhereUniqueInput[]
+  disconnect?: Prisma.GebruikerWhereUniqueInput | Prisma.GebruikerWhereUniqueInput[]
+  delete?: Prisma.GebruikerWhereUniqueInput | Prisma.GebruikerWhereUniqueInput[]
+  connect?: Prisma.GebruikerWhereUniqueInput | Prisma.GebruikerWhereUniqueInput[]
+  update?: Prisma.GebruikerUpdateWithWhereUniqueWithoutGroepenInput | Prisma.GebruikerUpdateWithWhereUniqueWithoutGroepenInput[]
+  updateMany?: Prisma.GebruikerUpdateManyWithWhereWithoutGroepenInput | Prisma.GebruikerUpdateManyWithWhereWithoutGroepenInput[]
+  deleteMany?: Prisma.GebruikerScalarWhereInput | Prisma.GebruikerScalarWhereInput[]
+}
+
+export type GebruikerCreateNestedOneWithoutVerzondenBerichtenInput = {
+  create?: Prisma.XOR<Prisma.GebruikerCreateWithoutVerzondenBerichtenInput, Prisma.GebruikerUncheckedCreateWithoutVerzondenBerichtenInput>
+  connectOrCreate?: Prisma.GebruikerCreateOrConnectWithoutVerzondenBerichtenInput
+  connect?: Prisma.GebruikerWhereUniqueInput
+}
+
+export type GebruikerUpdateOneRequiredWithoutVerzondenBerichtenNestedInput = {
+  create?: Prisma.XOR<Prisma.GebruikerCreateWithoutVerzondenBerichtenInput, Prisma.GebruikerUncheckedCreateWithoutVerzondenBerichtenInput>
+  connectOrCreate?: Prisma.GebruikerCreateOrConnectWithoutVerzondenBerichtenInput
+  upsert?: Prisma.GebruikerUpsertWithoutVerzondenBerichtenInput
+  connect?: Prisma.GebruikerWhereUniqueInput
+  update?: Prisma.XOR<Prisma.XOR<Prisma.GebruikerUpdateToOneWithWhereWithoutVerzondenBerichtenInput, Prisma.GebruikerUpdateWithoutVerzondenBerichtenInput>, Prisma.GebruikerUncheckedUpdateWithoutVerzondenBerichtenInput>
+}
+
 export type GebruikerCreateWithoutLijstjesInput = {
   id?: string
   name: string
   password: string
+  groepen?: Prisma.GroepCreateNestedManyWithoutGebruikersInput
+  verzondenBerichten?: Prisma.BerichtCreateNestedManyWithoutAfzenderInput
 }
 
 export type GebruikerUncheckedCreateWithoutLijstjesInput = {
   id?: string
   name: string
   password: string
+  groepen?: Prisma.GroepUncheckedCreateNestedManyWithoutGebruikersInput
+  verzondenBerichten?: Prisma.BerichtUncheckedCreateNestedManyWithoutAfzenderInput
 }
 
 export type GebruikerCreateOrConnectWithoutLijstjesInput = {
@@ -323,9 +403,129 @@ export type GebruikerUpdateWithoutLijstjesInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   name?: Prisma.StringFieldUpdateOperationsInput | string
   password?: Prisma.StringFieldUpdateOperationsInput | string
+  groepen?: Prisma.GroepUpdateManyWithoutGebruikersNestedInput
+  verzondenBerichten?: Prisma.BerichtUpdateManyWithoutAfzenderNestedInput
 }
 
 export type GebruikerUncheckedUpdateWithoutLijstjesInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  name?: Prisma.StringFieldUpdateOperationsInput | string
+  password?: Prisma.StringFieldUpdateOperationsInput | string
+  groepen?: Prisma.GroepUncheckedUpdateManyWithoutGebruikersNestedInput
+  verzondenBerichten?: Prisma.BerichtUncheckedUpdateManyWithoutAfzenderNestedInput
+}
+
+export type GebruikerCreateWithoutGroepenInput = {
+  id?: string
+  name: string
+  password: string
+  lijstjes?: Prisma.LijstjeCreateNestedManyWithoutGebruikerInput
+  verzondenBerichten?: Prisma.BerichtCreateNestedManyWithoutAfzenderInput
+}
+
+export type GebruikerUncheckedCreateWithoutGroepenInput = {
+  id?: string
+  name: string
+  password: string
+  lijstjes?: Prisma.LijstjeUncheckedCreateNestedManyWithoutGebruikerInput
+  verzondenBerichten?: Prisma.BerichtUncheckedCreateNestedManyWithoutAfzenderInput
+}
+
+export type GebruikerCreateOrConnectWithoutGroepenInput = {
+  where: Prisma.GebruikerWhereUniqueInput
+  create: Prisma.XOR<Prisma.GebruikerCreateWithoutGroepenInput, Prisma.GebruikerUncheckedCreateWithoutGroepenInput>
+}
+
+export type GebruikerUpsertWithWhereUniqueWithoutGroepenInput = {
+  where: Prisma.GebruikerWhereUniqueInput
+  update: Prisma.XOR<Prisma.GebruikerUpdateWithoutGroepenInput, Prisma.GebruikerUncheckedUpdateWithoutGroepenInput>
+  create: Prisma.XOR<Prisma.GebruikerCreateWithoutGroepenInput, Prisma.GebruikerUncheckedCreateWithoutGroepenInput>
+}
+
+export type GebruikerUpdateWithWhereUniqueWithoutGroepenInput = {
+  where: Prisma.GebruikerWhereUniqueInput
+  data: Prisma.XOR<Prisma.GebruikerUpdateWithoutGroepenInput, Prisma.GebruikerUncheckedUpdateWithoutGroepenInput>
+}
+
+export type GebruikerUpdateManyWithWhereWithoutGroepenInput = {
+  where: Prisma.GebruikerScalarWhereInput
+  data: Prisma.XOR<Prisma.GebruikerUpdateManyMutationInput, Prisma.GebruikerUncheckedUpdateManyWithoutGroepenInput>
+}
+
+export type GebruikerScalarWhereInput = {
+  AND?: Prisma.GebruikerScalarWhereInput | Prisma.GebruikerScalarWhereInput[]
+  OR?: Prisma.GebruikerScalarWhereInput[]
+  NOT?: Prisma.GebruikerScalarWhereInput | Prisma.GebruikerScalarWhereInput[]
+  id?: Prisma.StringFilter<"Gebruiker"> | string
+  name?: Prisma.StringFilter<"Gebruiker"> | string
+  password?: Prisma.StringFilter<"Gebruiker"> | string
+}
+
+export type GebruikerCreateWithoutVerzondenBerichtenInput = {
+  id?: string
+  name: string
+  password: string
+  lijstjes?: Prisma.LijstjeCreateNestedManyWithoutGebruikerInput
+  groepen?: Prisma.GroepCreateNestedManyWithoutGebruikersInput
+}
+
+export type GebruikerUncheckedCreateWithoutVerzondenBerichtenInput = {
+  id?: string
+  name: string
+  password: string
+  lijstjes?: Prisma.LijstjeUncheckedCreateNestedManyWithoutGebruikerInput
+  groepen?: Prisma.GroepUncheckedCreateNestedManyWithoutGebruikersInput
+}
+
+export type GebruikerCreateOrConnectWithoutVerzondenBerichtenInput = {
+  where: Prisma.GebruikerWhereUniqueInput
+  create: Prisma.XOR<Prisma.GebruikerCreateWithoutVerzondenBerichtenInput, Prisma.GebruikerUncheckedCreateWithoutVerzondenBerichtenInput>
+}
+
+export type GebruikerUpsertWithoutVerzondenBerichtenInput = {
+  update: Prisma.XOR<Prisma.GebruikerUpdateWithoutVerzondenBerichtenInput, Prisma.GebruikerUncheckedUpdateWithoutVerzondenBerichtenInput>
+  create: Prisma.XOR<Prisma.GebruikerCreateWithoutVerzondenBerichtenInput, Prisma.GebruikerUncheckedCreateWithoutVerzondenBerichtenInput>
+  where?: Prisma.GebruikerWhereInput
+}
+
+export type GebruikerUpdateToOneWithWhereWithoutVerzondenBerichtenInput = {
+  where?: Prisma.GebruikerWhereInput
+  data: Prisma.XOR<Prisma.GebruikerUpdateWithoutVerzondenBerichtenInput, Prisma.GebruikerUncheckedUpdateWithoutVerzondenBerichtenInput>
+}
+
+export type GebruikerUpdateWithoutVerzondenBerichtenInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  name?: Prisma.StringFieldUpdateOperationsInput | string
+  password?: Prisma.StringFieldUpdateOperationsInput | string
+  lijstjes?: Prisma.LijstjeUpdateManyWithoutGebruikerNestedInput
+  groepen?: Prisma.GroepUpdateManyWithoutGebruikersNestedInput
+}
+
+export type GebruikerUncheckedUpdateWithoutVerzondenBerichtenInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  name?: Prisma.StringFieldUpdateOperationsInput | string
+  password?: Prisma.StringFieldUpdateOperationsInput | string
+  lijstjes?: Prisma.LijstjeUncheckedUpdateManyWithoutGebruikerNestedInput
+  groepen?: Prisma.GroepUncheckedUpdateManyWithoutGebruikersNestedInput
+}
+
+export type GebruikerUpdateWithoutGroepenInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  name?: Prisma.StringFieldUpdateOperationsInput | string
+  password?: Prisma.StringFieldUpdateOperationsInput | string
+  lijstjes?: Prisma.LijstjeUpdateManyWithoutGebruikerNestedInput
+  verzondenBerichten?: Prisma.BerichtUpdateManyWithoutAfzenderNestedInput
+}
+
+export type GebruikerUncheckedUpdateWithoutGroepenInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  name?: Prisma.StringFieldUpdateOperationsInput | string
+  password?: Prisma.StringFieldUpdateOperationsInput | string
+  lijstjes?: Prisma.LijstjeUncheckedUpdateManyWithoutGebruikerNestedInput
+  verzondenBerichten?: Prisma.BerichtUncheckedUpdateManyWithoutAfzenderNestedInput
+}
+
+export type GebruikerUncheckedUpdateManyWithoutGroepenInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   name?: Prisma.StringFieldUpdateOperationsInput | string
   password?: Prisma.StringFieldUpdateOperationsInput | string
@@ -338,10 +538,14 @@ export type GebruikerUncheckedUpdateWithoutLijstjesInput = {
 
 export type GebruikerCountOutputType = {
   lijstjes: number
+  groepen: number
+  verzondenBerichten: number
 }
 
 export type GebruikerCountOutputTypeSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   lijstjes?: boolean | GebruikerCountOutputTypeCountLijstjesArgs
+  groepen?: boolean | GebruikerCountOutputTypeCountGroepenArgs
+  verzondenBerichten?: boolean | GebruikerCountOutputTypeCountVerzondenBerichtenArgs
 }
 
 /**
@@ -361,12 +565,28 @@ export type GebruikerCountOutputTypeCountLijstjesArgs<ExtArgs extends runtime.Ty
   where?: Prisma.LijstjeWhereInput
 }
 
+/**
+ * GebruikerCountOutputType without action
+ */
+export type GebruikerCountOutputTypeCountGroepenArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  where?: Prisma.GroepWhereInput
+}
+
+/**
+ * GebruikerCountOutputType without action
+ */
+export type GebruikerCountOutputTypeCountVerzondenBerichtenArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  where?: Prisma.BerichtWhereInput
+}
+
 
 export type GebruikerSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
   id?: boolean
   name?: boolean
   password?: boolean
   lijstjes?: boolean | Prisma.Gebruiker$lijstjesArgs<ExtArgs>
+  groepen?: boolean | Prisma.Gebruiker$groepenArgs<ExtArgs>
+  verzondenBerichten?: boolean | Prisma.Gebruiker$verzondenBerichtenArgs<ExtArgs>
   _count?: boolean | Prisma.GebruikerCountOutputTypeDefaultArgs<ExtArgs>
 }, ExtArgs["result"]["gebruiker"]>
 
@@ -391,6 +611,8 @@ export type GebruikerSelectScalar = {
 export type GebruikerOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "name" | "password", ExtArgs["result"]["gebruiker"]>
 export type GebruikerInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   lijstjes?: boolean | Prisma.Gebruiker$lijstjesArgs<ExtArgs>
+  groepen?: boolean | Prisma.Gebruiker$groepenArgs<ExtArgs>
+  verzondenBerichten?: boolean | Prisma.Gebruiker$verzondenBerichtenArgs<ExtArgs>
   _count?: boolean | Prisma.GebruikerCountOutputTypeDefaultArgs<ExtArgs>
 }
 export type GebruikerIncludeCreateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {}
@@ -400,6 +622,8 @@ export type $GebruikerPayload<ExtArgs extends runtime.Types.Extensions.InternalA
   name: "Gebruiker"
   objects: {
     lijstjes: Prisma.$LijstjePayload<ExtArgs>[]
+    groepen: Prisma.$GroepPayload<ExtArgs>[]
+    verzondenBerichten: Prisma.$BerichtPayload<ExtArgs>[]
   }
   scalars: runtime.Types.Extensions.GetPayloadResult<{
     id: string
@@ -800,6 +1024,8 @@ readonly fields: GebruikerFieldRefs;
 export interface Prisma__GebruikerClient<T, Null = never, ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
   readonly [Symbol.toStringTag]: "PrismaPromise"
   lijstjes<T extends Prisma.Gebruiker$lijstjesArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Gebruiker$lijstjesArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$LijstjePayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+  groepen<T extends Prisma.Gebruiker$groepenArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Gebruiker$groepenArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$GroepPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+  verzondenBerichten<T extends Prisma.Gebruiker$verzondenBerichtenArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Gebruiker$verzondenBerichtenArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$BerichtPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   /**
    * Attaches callbacks for the resolution and/or rejection of the Promise.
    * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -1246,6 +1472,54 @@ export type Gebruiker$lijstjesArgs<ExtArgs extends runtime.Types.Extensions.Inte
   take?: number
   skip?: number
   distinct?: Prisma.LijstjeScalarFieldEnum | Prisma.LijstjeScalarFieldEnum[]
+}
+
+/**
+ * Gebruiker.groepen
+ */
+export type Gebruiker$groepenArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the Groep
+   */
+  select?: Prisma.GroepSelect<ExtArgs> | null
+  /**
+   * Omit specific fields from the Groep
+   */
+  omit?: Prisma.GroepOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.GroepInclude<ExtArgs> | null
+  where?: Prisma.GroepWhereInput
+  orderBy?: Prisma.GroepOrderByWithRelationInput | Prisma.GroepOrderByWithRelationInput[]
+  cursor?: Prisma.GroepWhereUniqueInput
+  take?: number
+  skip?: number
+  distinct?: Prisma.GroepScalarFieldEnum | Prisma.GroepScalarFieldEnum[]
+}
+
+/**
+ * Gebruiker.verzondenBerichten
+ */
+export type Gebruiker$verzondenBerichtenArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the Bericht
+   */
+  select?: Prisma.BerichtSelect<ExtArgs> | null
+  /**
+   * Omit specific fields from the Bericht
+   */
+  omit?: Prisma.BerichtOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.BerichtInclude<ExtArgs> | null
+  where?: Prisma.BerichtWhereInput
+  orderBy?: Prisma.BerichtOrderByWithRelationInput | Prisma.BerichtOrderByWithRelationInput[]
+  cursor?: Prisma.BerichtWhereUniqueInput
+  take?: number
+  skip?: number
+  distinct?: Prisma.BerichtScalarFieldEnum | Prisma.BerichtScalarFieldEnum[]
 }
 
 /**

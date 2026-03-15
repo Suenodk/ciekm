@@ -11,4 +11,6 @@
 export type * from './models/Gebruiker.js'
 export type * from './models/Lijstje.js'
 export type * from './models/LijstjeItem.js'
+export type * from './models/Groep.js'
+export type * from './models/Bericht.js'
 export type * from './commonInputTypes.js'
